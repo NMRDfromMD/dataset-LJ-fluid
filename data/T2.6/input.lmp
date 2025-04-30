@@ -43,4 +43,4 @@ run ${n_step} # Step 4 - production in NVE ensemble
 
 reset_atoms image all
 write_dump all atom dump.lammpstrj
-# write_data system.data nocoeff nofix nolabelmap
+write_data topology.data nocoeff nofix nolabelmap
