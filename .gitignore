@@ -1,6 +1,5 @@
 
 **/log.*
-**/*.ipynb
 **/__pycache__/
 **/.*.lock
 **/.*.npz
