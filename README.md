@@ -1,8 +1,8 @@
-Data file for NMRDfromMD
-========================
+Lennard-Jones Fluid Dataset for NMRDfromMD
+==========================================
 
 <a href="webp">
-  <img src="snapshot/lj.png" align="right" width="30%"/>
+  <img src="snapshot/lj.png" align="right" width="25%"/>
 </a>
 
 LAMMPS input files and raw trajectory files used to generate the data
