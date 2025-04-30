@@ -29,3 +29,8 @@ git clone https://github.com/NMRDfromMD/dataset-LJ-fluid.git
 cd dataset-LJ-fluid
 git lfs pull
 ```
+
+## License
+
+This project is licensed under the Creative Commons Attribution 4.0
+International (CC BY 4.0)** License, see the [LICENSE](LICENSE) file.
