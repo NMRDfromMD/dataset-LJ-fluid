@@ -1,0 +1,43 @@
+# LAMMPS Input Script
+# Author: Simon Gravelle
+# License: GNU General Public License v3.0
+# Project: NMRfromMD – https://nmrdfrommd.github.io
+# Description: Input file for simulating a Lennard-Jones fluid
+
+include parameters.inc
+
+units real
+dimension 3
+atom_style full
+pair_style lj/cut ${cut_off}
+boundary p p p
+
+region simulation_box block 0 ${L} 0 ${L} 0 ${L}
+create_box 1 simulation_box
+create_atoms 1 random ${n_part} 921342 simulation_box
+
+mass 1 ${mass}
+pair_coeff 1 1 ${epsilon} ${sigma}
+
+thermo 10
+
+minimize 1.0e-4 1.0e-6 1000 10000
+
+thermo 1000
+
+velocity all create ${T} 4928459 rot yes mom yes dist gaussian
+fix mynve all nve
+fix mylgv all langevin ${T} ${T} 10 1530917
+
+timestep ${dt}
+run 10000
+reset_timestep 0
+unfix mylgv
+
+dump mydmp all xtc 20 dump.xtc
+
+run ${n_step}
+
+reset_atoms image all
+write_dump all atom dump.lammpstrj
+write_data system.data nocoeff nofix nolabelmap
