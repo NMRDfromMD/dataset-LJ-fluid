@@ -54,3 +54,28 @@ def save_result(data, name):
         "R2": R2
     }
     np.save(saving_file, result)
+
+
+def log_bin(x, y, num_bins=50):
+    x = np.array(x)
+    y = np.array(y)
+
+    assert np.all(x > 0)
+
+    log_min = np.log10(x.min())
+    log_max = np.log10(x.max())
+
+    log_bins = np.logspace(log_min, log_max, num_bins + 1)
+    bin_centers = np.sqrt(log_bins[:-1] * log_bins[1:])  # geometric mean
+
+    indices = np.digitize(x, log_bins)
+
+    binned_y = [
+        y[indices == i].mean() if np.any(indices == i) else np.nan
+        for i in range(1, len(log_bins))
+    ]
+
+    bin_centers = bin_centers[~np.isnan(binned_y)]
+    binned_y = np.array(binned_y)[~np.isnan(binned_y)]
+
+    return bin_centers, binned_y
