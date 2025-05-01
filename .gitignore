@@ -1,4 +1,5 @@
 
+**/*.xtc
 **/log.*
 **/__pycache__/
 **/.*.lock
