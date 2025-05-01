@@ -1,2 +1,0 @@
-*.xtc !text !filter !merge !diff
-*.lammpstrj !text !filter !merge !diff
