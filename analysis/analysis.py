@@ -2,10 +2,10 @@
 # coding: utf-8
 
 import os
-import numpy as np
 import MDAnalysis as mda
-import nmrformd
+from nmrdfrommd import NMRD
 from concurrent.futures import ProcessPoolExecutor, as_completed
+
 from utilities import save_result, get_git_repo_path
 
 
@@ -22,12 +22,16 @@ def process_temperature(T, git_path):
     try:
         u = mda.Universe(topology_file, trajectory_file)
         all_atoms = u.select_atoms("all")
-        nmr = nmrformd.NMR(u, atom_group=all_atoms, number_i=1)
+
+        nmr = NMRD(
+            u=u,
+            atom_group=all_atoms,
+            number_i=1)
+        nmr.run_analysis()
         save_result(nmr, name=f"T{T}")
         print(f"T={T} Success")
     except Exception as e:
         print(f"[T={T}] Error: {e}")
-
 
 def main(max_iterations):
     git_path = get_git_repo_path()
