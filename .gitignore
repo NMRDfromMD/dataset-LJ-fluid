@@ -1,6 +1,8 @@
 
 **/_*
 **/*.xtc
+**/*.lammpstrj
+**/*.data
 **/log.*
 **/__pycache__/
 **/.*.lock

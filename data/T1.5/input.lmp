@@ -43,6 +43,9 @@ compute mymsd all msd
 fix myavt all ave/time 10 100 1000 c_mymsd[4] file msd.dat
 
 run ${n_step} # Step 4 - production in NVE ensemble
+undump mydmp
+
+run 40000 # (optional) keep running for better msd
 
 reset_atoms image all
 write_dump all atom dump.lammpstrj
