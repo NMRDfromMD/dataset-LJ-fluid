@@ -39,6 +39,8 @@ run 5000 # Step 3 - equilibration 2 in NVE ensemble
 reset_timestep 0
 
 dump mydmp all xtc 10 dump.xtc
+compute mymsd all msd
+fix myavt all ave/time 10 100 1000 c_mymsd[4] file msd.dat
 
 run ${n_step} # Step 4 - production in NVE ensemble
 
