@@ -35,7 +35,7 @@ tempconv = epsilon/kB
 
 dt = tconv*0.005
 dt = np.round(dt.to(ureg.fs),4)
-n_step = 10000 # 4*np.int32(t0/dt) # factor 4 for safety
+n_step = 10000
 
 print("Timestep = "+str(dt.to(ureg.fs)))
 print("Number of step = "+str(n_step))
