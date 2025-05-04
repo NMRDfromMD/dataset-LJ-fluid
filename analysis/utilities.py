@@ -27,20 +27,18 @@ def save_result(data, name):
     if os.path.exists(saving_file):
         try:
             previous_data = np.load(saving_file, allow_pickle=True).item()
-            t_prev = np.real(previous_data["t"])
             
-            if len(t_prev) == len(t):
-                N_prev = np.real(previous_data["N"])
-                C_prev = np.real(previous_data["C"])
-                R1_prev = np.real(previous_data["R1"])
-                R2_prev = np.real(previous_data["R2"])
+            N_prev = np.real(previous_data["N"])
+            C_prev = np.real(previous_data["C"])
+            R1_prev = np.real(previous_data["R1"])
+            R2_prev = np.real(previous_data["R2"])
 
-                # Weighted averaging
-                total_N = N + N_prev
-                C = (C * N + C_prev * N_prev) / total_N
-                R1 = (R1 * N + R1_prev * N_prev) / total_N
-                R2 = (R2 * N + R2_prev * N_prev) / total_N
-                N = total_N
+            # Weighted averaging
+            total_N = N + N_prev
+            C = (C * N + C_prev * N_prev) / total_N
+            R1 = (R1 * N + R1_prev * N_prev) / total_N
+            R2 = (R2 * N + R2_prev * N_prev) / total_N
+            N = total_N
         except Exception as e:
             print(f"Warning: Could not load previous data due to: {e}")
     

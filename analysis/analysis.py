@@ -28,6 +28,7 @@ def process_temperature(T, git_path):
             atom_group=all_atoms,
             number_i=1)
         nmr.run_analysis()
+        
         save_result(nmr, name=f"T{T}")
         print(f"T={T} Success")
     except Exception as e:
@@ -45,4 +46,4 @@ def main(max_iterations):
                 future.result()  # Trigger exceptions if any
 
 if __name__ == "__main__":
-    main(max_iterations=500)
+    main(max_iterations=200)
