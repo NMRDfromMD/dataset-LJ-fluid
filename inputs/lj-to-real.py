@@ -54,8 +54,9 @@ cut_off = 4.0*sigma
 T = np.round(tempconv * T_star,4)
 print("Temperature = "+str(T))
 
-# Update parameters.inc
+dumping = 10
 
+# Update parameters.inc
 f = open("parameters.inc", "w")
 f.write("# LAMMPS parameters \n")
 f.write("variable mass equal " + str(mass.magnitude) + " # " + str(mass.units) + "\n")
@@ -67,5 +68,6 @@ f.write("variable n_part equal " + str(n_part) + "\n")
 f.write("variable L equal " + str(L.magnitude)  + " # " + str(L.units) + "\n")
 f.write("variable cut_off equal " + str(cut_off.magnitude)  + " # " + str(cut_off.units) + "\n")
 f.write("variable T equal " + str(T.magnitude)  + " # " + str(T.units) + "\n")
+f.write("variable dumping equal " + str(dumping) + "\n")
 f.close()
 
