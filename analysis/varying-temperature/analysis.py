@@ -8,8 +8,7 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 
 from utilities import save_result, get_git_repo_path
 
-
-def process_temperature(T, git_path):
+def process(T, git_path):
     """Process one temperature point"""
     data_dir = os.path.join(git_path, "data", f"T{T}")
     topology_file = os.path.join(data_dir, "topology.data")
@@ -41,9 +40,9 @@ def main(max_iterations):
     for iteration in range(max_iterations):
         print(f"\n--- Iteration {iteration + 1} ---")
         with ProcessPoolExecutor() as executor:
-            futures = [executor.submit(process_temperature, T, git_path) for T in temperatures]
+            futures = [executor.submit(process, T, git_path) for T in temperatures]
             for future in as_completed(futures):
-                future.result()  # Trigger exceptions if any
+                future.result()
 
 if __name__ == "__main__":
-    main(max_iterations=2000)
+    main(max_iterations=3000)
