@@ -7,13 +7,13 @@ def get_git_repo_path():
     repo = git.Repo(current_path, search_parent_directories=True)
     return repo.git.rev_parse("--show-toplevel")
 
-def save_result(data, name):
+def save_result(data, n, name):
     """Save or update correlation function results into a .npy file."""
     
     # Create directory if it doesn't exist
     output_dir = f"{name}"
     os.makedirs(output_dir, exist_ok=True)
-    saving_file = os.path.join(output_dir, f"result.npy")
+    saving_file = os.path.join(output_dir, f"result{n}.npy")
     
     # Extract relevant data
     t = data.t

@@ -49,7 +49,8 @@ n_part = 16384
 L = np.round((n_part / (rho / mass))**(1/3),4)
 print("Box size = "+str(L))
 
-cut_off = 4.0*sigma
+cut_off_lj = 4.0
+cut_off = cut_off_lj*sigma
 
 T = np.round(tempconv * T_star,4)
 print("Temperature = "+str(T))

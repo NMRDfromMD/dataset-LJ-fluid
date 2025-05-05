@@ -5,9 +5,9 @@ set -e
 n_part=16384
 cut_off=4.0
 dumping=10
-T_star=3.0
+T_star=0.8
 
-for n_part in 200 326 532 868 1417 2312 3772 6154 10042 16383
+for n_part in 49 90 162 292 526 949 1709 3080 5550 10000
 do
     folder=n${n_part}/
     if [ ! -d "$folder" ];
@@ -27,8 +27,8 @@ do
             sed -i '/'"$oldline"'/c\'"$newline" lj-to-real.py
 
             # Replace cut off in file
-            newline='cut_off = '${n_part}'*sigma'
-            oldline=$(cat lj-to-real.py | grep 'cut_off = ')
+            newline='cut_off_lj = '${cut_off}
+            oldline=$(cat lj-to-real.py | grep 'cut_off_lj = ')
             sed -i '/'"$oldline"'/c\'"$newline" lj-to-real.py
 
             # Replace dumping in file
