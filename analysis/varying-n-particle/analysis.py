@@ -35,7 +35,7 @@ def process(npart, n, git_path):
 
 def main(max_iterations):
     git_path = get_git_repo_path()
-    n_parts = ["49", "90", "162", "292", "526", "949", "1709", "3080", "5550", "10000"]
+    n_parts = ["40", "61", "95", "148", "230", "356", "551", "854", "1322", "2048"]
 
     all_N = np.arange(1, 11)
     for iteration in range(max_iterations):

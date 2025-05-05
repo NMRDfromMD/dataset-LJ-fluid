@@ -35,7 +35,7 @@ tempconv = epsilon/kB
 
 dt = tconv*0.005
 dt = np.round(dt.to(ureg.fs),4)
-n_step = 10000
+n_step = 100000
 
 print("Timestep = "+str(dt.to(ureg.fs)))
 print("Number of step = "+str(n_step))
@@ -45,7 +45,7 @@ rho = np.round(rho_star * mass / sigma**3, 4)
 
 print("Density = "+str(rho))
 
-n_part = 16384
+n_part = 2048
 L = np.round((n_part / (rho / mass))**(1/3),4)
 print("Box size = "+str(L))
 
