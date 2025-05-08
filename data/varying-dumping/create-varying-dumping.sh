@@ -2,10 +2,10 @@ goo#!/bin/bash
 
 set -e
 
-n_part=16384
+n_part=2048
 cut_off=4.0
 dumping=10
-T_star=3.0
+T_star=0.8
 
 for dumping in 1 2 3 4 7 10 15 22 33 49
 do
