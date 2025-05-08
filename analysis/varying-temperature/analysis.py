@@ -3,6 +3,7 @@
 
 import os
 import numpy as np
+import numpy as np
 import MDAnalysis as mda
 from nmrdfrommd import NMRD
 from concurrent.futures import ProcessPoolExecutor, as_completed
@@ -47,4 +48,4 @@ def main(max_iterations):
                 future.result()
 
 if __name__ == "__main__":
-    main(max_iterations=3000)
+    main(max_iterations=5000)

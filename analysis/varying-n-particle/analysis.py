@@ -36,11 +36,10 @@ def process(npart, n, git_path):
 def main(max_iterations):
     git_path = get_git_repo_path()
     n_parts = ["40", "61", "95", "148", "230", "356", "551", "854", "1322", "2048"]
-
     all_N = np.arange(1, 11)
     for iteration in range(max_iterations):
         print(f"\n--- Iteration {iteration + 1} ---")
-        with ProcessPoolExecutor(max_workers=30) as executor:
+        with ProcessPoolExecutor(max_workers=10) as executor:
             futures = [executor.submit(process, npart, n, git_path)
                        for npart in n_parts
                        for n in all_N]
@@ -48,4 +47,4 @@ def main(max_iterations):
                 future.result()
 
 if __name__ == "__main__":
-    main(max_iterations=1000)
+    main(max_iterations=5000)
