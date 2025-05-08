@@ -48,4 +48,4 @@ def main(max_iterations):
                 future.result()
 
 if __name__ == "__main__":
-    main(max_iterations=3000)
+    main(max_iterations=1000)
