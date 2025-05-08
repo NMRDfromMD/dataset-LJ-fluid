@@ -40,7 +40,7 @@ def main(max_iterations):
     all_N = np.arange(1, 11)
     for iteration in range(max_iterations):
         print(f"\n--- Iteration {iteration + 1} ---")
-        with ProcessPoolExecutor(max_workers=10) as executor:
+        with ProcessPoolExecutor(max_workers=30) as executor:
             futures = [executor.submit(process, npart, n, git_path)
                        for npart in n_parts
                        for n in all_N]
