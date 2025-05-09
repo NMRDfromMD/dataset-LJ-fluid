@@ -27,7 +27,7 @@ def process(T, n, git_path):
         nmr = NMRD(
             u=u,
             atom_group=all_atoms,
-            number_i=1)
+            number_i=0)
         nmr.run_analysis()
         
         save_result(nmr, n, name=f"T{T}")
@@ -48,4 +48,4 @@ def main(max_iterations):
                 future.result()
 
 if __name__ == "__main__":
-    main(max_iterations=5000)
+    main(max_iterations=1)
