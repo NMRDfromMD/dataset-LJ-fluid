@@ -21,12 +21,15 @@ def process(npart, n, git_path):
 
     try:
         u = mda.Universe(topology_file, trajectory_file)
+
         all_atoms = u.select_atoms("all")
+        n_atoms = all_atoms.n_atoms
+        number_i = np.min([n_atoms, 500])
 
         nmr = NMRD(
             u=u,
             atom_group=all_atoms,
-            number_i=0)
+            number_i=number_i)
         nmr.run_analysis()
         
         save_result(nmr, n, name=f"n{npart}")
