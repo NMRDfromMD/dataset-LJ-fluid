@@ -39,7 +39,7 @@ def process(T, n, git_path):
 
 def main(max_iterations):
     git_path = get_git_repo_path()
-    all_T = ["0.8", "1.0", "1.2", "1.5", "1.8", "2.2", "2.6", "3.0"]
+    all_T = ["3.4", "3.8"]
     all_N = np.arange(1, 11)
     for iteration in range(max_iterations):
         print(f"\n--- Iteration {iteration + 1} ---")

@@ -16,11 +16,11 @@ def save_result(data, n, name):
     saving_file = os.path.join(output_dir, f"result{n}.npy")
     
     # Extract relevant data
-    t = data.t
-    f = data.f
-    C = data.gij[0]
-    R1 = data.R1
-    R2 = data.R2
+    t = data["t"]
+    f = data["f"]
+    C = data.results["gij"][0]
+    R1 = data["R1"]
+    R2 = data["R2"]
     N = data.group_j.atoms.n_atoms
     
     # If file exists, load and combine with previous data
