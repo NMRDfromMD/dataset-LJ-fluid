@@ -7,7 +7,7 @@ cut_off=4.0
 dumping=10
 T_star=0.8
 
-for T_star in 0.8 1.0 1.2 1.5 1.8 2.2 2.6 3.0
+for T_star in 3.4 3.8
 do
     folder=T${T_star}/
     if [ ! -d "$folder" ];
